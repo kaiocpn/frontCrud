@@ -1,0 +1,22 @@
+<div class="card">
+    <div class="card-header">Despachos</div>
+    <div class="card-body">
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                
+                    <th>Mark Number</th>
+                    <th>Modal</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of despachos">
+                    <td>{{item.placa.markNumber}}</td>
+                    <td>{{item.modal.descricao}}</td>
+                    <td>{{item.data | date}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

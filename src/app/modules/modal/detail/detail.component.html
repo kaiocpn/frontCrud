@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Descricao</label>
+                        <input required type="text" class="form-control" [(ngModel)]="item.descricao" name="descricao"/>
+                    </div>
+                </div>
+            </div>
+            <button [disabled]="!form.form.valid" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</div>

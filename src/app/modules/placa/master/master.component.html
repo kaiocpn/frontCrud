@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header">Placas</div>
+    <div class="card-body">
+        <div class="w-100 d-flex justify-content-end">
+            <button class="btn btn-primary" [routerLink]="['novo']">Adicionar</button>
+        </div>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Mark Number</th>
+                    <th>Código SAP</th>
+                    <th>Espessura</th>
+                    <th>Altura</th>
+                    <th>Largura</th>
+                    <th>Peso</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of placas">
+                    <td>{{item.markNumber}}</td>
+                    <td>{{item.codigoSap}}</td>
+                    <td>{{item.espessura}}</td>
+                    <td>{{item.altura}}</td>
+                    <td>{{item.largura}}</td>
+                    <td>{{item.peso}}</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning mr-2" [routerLink]="[item.id]">Editar</button>
+                        <button class="btn btn-sm btn-danger mr-2" [routerLink]="" (click)="delete(item.id)">Excluir</button>
+                        <button class="btn btn-sm btn-info mr-2" (click)="despachar(item.markNumber)">Despachar</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

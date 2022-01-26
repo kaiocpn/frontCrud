@@ -1,0 +1,46 @@
+<div class="card">
+    <div class="card-header">{{titulo}}</div>
+    <div class="card-body">
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Mark Number</label>
+                        <input required type="text" class="form-control" [(ngModel)]="item.markNumber" name="markNumber"/>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Código SAP</label>
+                        <input required type="text" class="form-control" [(ngModel)]="item.codigoSap" name="codigoSap"/>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Espessura</label>
+                        <input required type="number" class="form-control" [(ngModel)]="item.espessura" name="espessura"/>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Altura</label>
+                        <input required type="number" class="form-control" [(ngModel)]="item.altura" name="altura"/>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Largura</label>
+                        <input required type="number" class="form-control" [(ngModel)]="item.largura" name="largura"/>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label>Peso</label>
+                        <input required type="number" class="form-control" [(ngModel)]="item.peso" name="peso"/>
+                    </div>
+                </div>
+            </div>
+            <button [disabled]="!form.form.valid" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</div>
