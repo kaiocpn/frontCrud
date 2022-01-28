@@ -1,4 +1,4 @@
 export class Modal{
-    id?: number
+    id!: number
     descricao?: string
 }

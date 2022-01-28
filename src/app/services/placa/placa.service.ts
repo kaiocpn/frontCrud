@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Placa } from 'src/app/model/placa.model';
 
+
+   
+
 @Injectable({
   providedIn: 'root'
 })

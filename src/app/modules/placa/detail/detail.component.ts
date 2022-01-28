@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Placa } from 'src/app/model/placa.model';
 
 import { PlacaService } from 'src/app/services/placa/placa.service';
+import { ToastrService} from 'ngx-toastr'
 
 
 @Component({
@@ -15,10 +16,15 @@ export class DetailComponent implements OnInit {
 
   constructor(private placaService: PlacaService,
     private activatedRoute: ActivatedRoute,
-    private location: Location) { }
+    private location: Location,
+    private toastr: ToastrService) { }
 
   item: Placa;
   titulo: string;
+
+  salvarToatr(){
+    this.toastr.success('Placa Salva com sucesso');
+  }
 
   ngOnInit(): void {
 

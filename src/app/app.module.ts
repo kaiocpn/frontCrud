@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 import { PlacaModule } from './modules/placa/placa.module';
 import { RouterModule } from '@angular/router';
 import { ModalModule } from './modules/modal/modal.module';
+import  { ToastrModule }  from  'ngx-toastr' ;
+import  { BrowserAnimationsModule }  from  '@angular/platform-browser/animations' ;
 
 
 
@@ -20,6 +22,7 @@ import { ModalModule } from './modules/modal/modal.module';
   declarations: [
     AppComponent,
     NotfoundComponent,
+    
     
    
     
@@ -37,6 +40,13 @@ import { ModalModule } from './modules/modal/modal.module';
     PlacaModule,
     RouterModule,
     ModalModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      progressBar: true,
+      progressAnimation: 'increasing',
+      preventDuplicates: true
+    }),
     
   ],
   providers: [],

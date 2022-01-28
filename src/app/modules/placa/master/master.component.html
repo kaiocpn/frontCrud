@@ -26,8 +26,15 @@
                     <td>{{item.peso}}</td>
                     <td>
                         <button class="btn btn-sm btn-warning mr-2" [routerLink]="[item.id]">Editar</button>
-                        <button class="btn btn-sm btn-danger mr-2" [routerLink]="" (click)="delete(item.id)">Excluir</button>
-                        <button class="btn btn-sm btn-info mr-2" (click)="despachar(item.markNumber)">Despachar</button>
+                        <button class="btn btn-sm btn-danger mr-2" [routerLink]="" (click)="delete(item.id)" (click)="excluirToatr()">Excluir</button>
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Modais
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" *ngFor="let mod of modal" (click)="despachar(item.markNumber, mod.id)" (click)="despacharToatr()">{{mod.descricao}}</a>
+                            </div>
+                        </div>      
                     </td>
                 </tr>
             </tbody>

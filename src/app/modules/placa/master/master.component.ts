@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Modal } from 'src/app/model/modal.model';
 import { Placa } from 'src/app/model/placa.model';
 import { DespachoService } from 'src/app/services/despacho/despacho.service';
+import { ModalService } from 'src/app/services/modal/modal.service';
 import { PlacaService } from 'src/app/services/placa/placa.service';
+import { ToastrService} from 'ngx-toastr'
 
 @Component({
   selector: 'app-master',
@@ -10,8 +13,20 @@ import { PlacaService } from 'src/app/services/placa/placa.service';
 })
 export class MasterComponent implements OnInit {
 
-  constructor(private placaService: PlacaService, private despachoService: DespachoService) { }
+  constructor(private placaService: PlacaService, private despachoService: DespachoService, private modalService: ModalService, 
+  private toastr: ToastrService) { }
+
   placas: Array<Placa> = [];
+  modal!: Array<Modal>;
+
+
+  excluirToatr(){
+    this.toastr.error('Placa Excluida com sucesso');
+  }
+  despacharToatr(){
+    this.toastr.success('Placa Despachada com sucesso');
+  }
+  
 
   ngOnInit(): void {
     this.placaService.getAll()
@@ -19,6 +34,8 @@ export class MasterComponent implements OnInit {
         console.log(e);
         this.placas = e;
       });
+        this.modalService.getAll()
+          .subscribe((x: any) => this.modal = x);
   }
 
   delete(id: number) {
@@ -29,17 +46,17 @@ export class MasterComponent implements OnInit {
       });
   }
 
-  despachar(markNumber: any) {
+  despachar(markNumber: any, modalid: number) {
     let tipoPlaca = 1;
 
     let objetoDespacho = {
       markNumbers: [markNumber],
       data: new Date(),
-      placa_id: 1
+      modal_id: modalid
     }
 
     this.despachoService.despachar(objetoDespacho)  
       .subscribe(x => console.log("OK"));
   }
-
+ 
 }

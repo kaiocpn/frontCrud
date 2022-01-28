@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Modal } from 'src/app/model/modal.model';
 import { ModalService } from 'src/app/services/modal/modal.service';
+import { ToastrService} from 'ngx-toastr'
+
 
 @Component({
   selector: 'app-detail',
@@ -13,11 +15,16 @@ export class DetailComponent implements OnInit {
 
   constructor(private modalService: ModalService,
     private activatedRoute: ActivatedRoute,
-    private location: Location) { }
+    private location: Location,
+    private toastr: ToastrService) { }
 
 
     item: Modal;
     titulo: string;
+
+    modalToatr(){
+      this.toastr.success('Modal criado com sucesso');
+    }
 
     ngOnInit(): void {
 
